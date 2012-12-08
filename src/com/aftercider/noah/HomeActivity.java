@@ -19,7 +19,7 @@ public class HomeActivity extends Activity {
         initializeButton();
     }
     
-    // ƒ{ƒ^ƒ“‚Ìİ’è‚ğs‚¤
+    // ãƒœã‚¿ãƒ³ã®åˆæœŸåŒ–ã‚’è¡Œã†
     private void initializeButton(){
     	buttonBudget = (Button)findViewById(R.id.button_budget);
         buttonBudget.setOnClickListener(new OnClickListener() {
