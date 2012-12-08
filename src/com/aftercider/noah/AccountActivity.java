@@ -19,7 +19,7 @@ public class AccountActivity extends Activity {
         initializeButton();
     }
     
-    // ƒ{ƒ^ƒ“‚Ìİ’è‚ğs‚¤
+    // ãƒœã‚¿ãƒ³ã®åˆæœŸåŒ–ã‚’è¡Œã†
     private void initializeButton(){
     	buttonPlanning = (Button)findViewById(R.id.button_budget);
     	buttonPlanning.setOnClickListener(new OnClickListener() {
