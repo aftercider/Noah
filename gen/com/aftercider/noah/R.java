@@ -15,19 +15,86 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int menu_settings=0x7f070000;
+        public static final int budget_settings=0x7f07000b;
+        public static final int button_account=0x7f070008;
+        public static final int button_budget=0x7f070003;
+        public static final int button_hashedtweet=0x7f070007;
+        public static final int button_itemlist=0x7f070004;
+        public static final int button_staff=0x7f07000a;
+        public static final int button_status=0x7f070006;
+        public static final int button_web=0x7f070009;
+        public static final int home_settings=0x7f07000c;
+        public static final int imageView1=0x7f070001;
+        public static final int tableRow1=0x7f070002;
+        public static final int tableRow2=0x7f070005;
+        public static final int textView1=0x7f070000;
     }
     public static final class layout {
-        public static final int activity_menu=0x7f030000;
+        public static final int activity_account=0x7f030000;
+        public static final int activity_budget=0x7f030001;
+        public static final int activity_hashedtweet=0x7f030002;
+        public static final int activity_home=0x7f030003;
+        public static final int activity_information=0x7f030004;
+        public static final int activity_itemlist=0x7f030005;
+        public static final int activity_planning=0x7f030006;
+        public static final int activity_staff=0x7f030007;
+        public static final int activity_status=0x7f030008;
+        public static final int activity_summary=0x7f030009;
+        public static final int activity_twitterauth=0x7f03000a;
+        public static final int activity_web=0x7f03000b;
     }
     public static final class menu {
-        public static final int activity_menu=0x7f060000;
+        public static final int menu_budget=0x7f060000;
+        public static final int menu_home=0x7f060001;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
+        public static final int budget_settings=0x7f04000b;
+        public static final int button_home_account=0x7f040008;
+        public static final int button_home_budget=0x7f040004;
+        public static final int button_home_hashedtweet=0x7f040007;
+        public static final int button_home_itemlist=0x7f040005;
+        public static final int button_home_staff=0x7f04000a;
+        public static final int button_home_status=0x7f040006;
+        public static final int button_home_web=0x7f040009;
         public static final int hello_world=0x7f040001;
-        public static final int menu_settings=0x7f040002;
-        public static final int title_activity_menu=0x7f040003;
+        /** - For HomeActivity 
+         */
+        public static final int home_settings=0x7f040002;
+        /** - For AccountActivity 
+         */
+        public static final int title_activity_account=0x7f040013;
+        /** - For BudgetActivity 
+         */
+        public static final int title_activity_budget=0x7f04000c;
+        /** - For HashedTweetActivity 
+         */
+        public static final int title_activity_hashedtweet=0x7f040012;
+        public static final int title_activity_home=0x7f040003;
+        /** - For InformationActivity 
+         */
+        public static final int title_activity_information=0x7f040010;
+        /** - For ItemListActivity 
+         */
+        public static final int title_activity_itemlist=0x7f04000f;
+        /** - For PlanningActivity 
+         */
+        public static final int title_activity_planning=0x7f04000d;
+        /** - For StaffActivity 
+         */
+        public static final int title_activity_staff=0x7f040016;
+        /** - For StatusActivity 
+         */
+        public static final int title_activity_status=0x7f040011;
+        /** - For SummaryActivity 
+         */
+        public static final int title_activity_summary=0x7f04000e;
+        /** - For TwitterAuthActivity 
+         */
+        public static final int title_activity_twitterauth=0x7f040014;
+        /** - For WebActivity 
+         */
+        public static final int title_activity_web=0x7f040015;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

@@ -2,7 +2,37 @@
 
     <string name="app_name">Noah</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="title_activity_menu">MenuActivity</string>
-
+    <!--- For HomeActivity -->
+    <string name="home_settings">Settings</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="button_home_budget">Buying</string>
+    <string name="button_home_itemlist">ItemInfo</string>
+    <string name="button_home_status">Status</string>
+    <string name="button_home_hashedtweet">Tweets</string>
+    <string name="button_home_account">Auth</string>
+    <string name="button_home_web">Web</string>
+    <string name="button_home_staff">staff</string>
+    <string name="budget_settings">Settings</string>
+    <!--- For BudgetActivity -->
+    <string name="title_activity_budget">budgetActivity</string>
+    <!--- For PlanningActivity -->
+    <string name="title_activity_planning">planningActivity</string>
+    <!--- For SummaryActivity -->
+    <string name="title_activity_summary">summaryActivity</string>
+    <!--- For ItemListActivity -->
+    <string name="title_activity_itemlist">itemListActivity</string>
+    <!--- For InformationActivity -->
+    <string name="title_activity_information">informationActivity</string>
+    <!--- For StatusActivity -->
+    <string name="title_activity_status">statusActivity</string>
+    <!--- For HashedTweetActivity -->
+    <string name="title_activity_hashedtweet">hashedTweetActivity</string>
+    <!--- For AccountActivity -->
+    <string name="title_activity_account">accountActivity</string>
+    <!--- For TwitterAuthActivity -->
+    <string name="title_activity_twitterauth">twitterAuthActivity</string>
+    <!--- For WebActivity -->
+    <string name="title_activity_web">webActivity</string>
+    <!--- For StaffActivity -->
+    <string name="title_activity_staff">staffActivity</string>
 </resources>
