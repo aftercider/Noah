@@ -10,6 +10,36 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="@string/textview_budget" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <com.example.widget.NumberPicker
+            android:id="@+id/budget_picker_ten_thousand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </com.example.widget.NumberPicker>
+
+        <com.example.widget.NumberPicker
+            android:id="@+id/budget_picker_thousand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </com.example.widget.NumberPicker>
+
+        <com.example.widget.NumberPicker
+            android:id="@+id/budget_picker_hundred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </com.example.widget.NumberPicker>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_planning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_budget_planning" />
 
 </LinearLayout>
