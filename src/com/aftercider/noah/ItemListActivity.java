@@ -1,4 +1,13 @@
+/*
+ * Copyright (C) 2012 Aftercider
+ *
+ * All rights reserved by Aftercider
+ * Contact: @aftercider (Twitter)
+ *
+ */
+
 package com.aftercider.noah;
+
 
 import android.os.Bundle;
 import android.app.Activity;

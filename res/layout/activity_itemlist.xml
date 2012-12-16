@@ -6,4 +6,10 @@
     android:layout_alignParentTop="true"
     android:orientation="vertical" >
 
+    <com.aftercider.noah.ItemList.ItemListView
+        android:id="@+id/listview_planning"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </com.aftercider.noah.ItemList.ItemListView>
+
 </LinearLayout>
