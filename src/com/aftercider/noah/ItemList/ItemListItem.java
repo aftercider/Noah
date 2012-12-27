@@ -14,9 +14,9 @@ public class ItemListItem {
 	private int count;
 	
 	public ItemListItem() {
-		itemName = "";
-		price    = 0;
-		count    = 0;
+		this.itemName = "UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープン直飲みタイプ)";
+		this.price    = 3500;
+		this.count    = 2;
 	}
 	
 	public void setItemName(String itemName) {
@@ -32,7 +32,8 @@ public class ItemListItem {
 	}
 
 	public String getItemName(){
-		return this.itemName;
+		return "UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープン直飲みタイプ)";
+		// TODO なんかうまくいかないから文字列返させる。
 	}
 	
 	public int getPrice(){
