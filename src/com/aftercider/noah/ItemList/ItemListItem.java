@@ -9,39 +9,39 @@
 package com.aftercider.noah.ItemList;
 
 public class ItemListItem {
-	private String itemName;
-	private int price;
-	private int count;
+	private String mItemName;
+	private int    mPrice;
+	private int    mCount;
 	
 	public ItemListItem() {
-		this.itemName = "UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープン直飲みタイプ)";
-		this.price    = 3500;
-		this.count    = 2;
+		mItemName = "UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープンタイプ)";
+		mPrice    = 3500;
+		mCount    = 2;
 	}
 	
 	public void setItemName(String itemName) {
-		this.itemName = itemName;
+		mItemName = itemName;
 	}
 
 	public void setPrice(int price) {
-		this.price = price;
+		mPrice = price;
 	}
 
 	public void setCount(int count) {
-		this.count = count;
+		mCount = count;
 	}
 
 	public String getItemName(){
-		return "UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープン直飲みタイプ)";
+		return mItemName;
 		// TODO なんかうまくいかないから文字列返させる。
 	}
 	
 	public int getPrice(){
-		return this.price;
+		return mPrice;
 	}
 	
 	public int getCount(){
-		return this.count;
+		return mCount;
 	}
 
 }

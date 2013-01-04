@@ -12,37 +12,39 @@ import java.util.ArrayList;
 
 import com.aftercider.noah.ItemList.ItemListAdapter;
 import com.aftercider.noah.ItemList.ItemListItem;
+import com.aftercider.noah.ItemList.ItemListView;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 
 public class PlanningActivity extends Activity {
 
-	Button buttonSummary;	// SummaryActivityへのボタン
-	ListView listView;
-	ArrayList<ItemListItem> itemArrayList;
+	Button mButtonSummary;	// SummaryActivityへのボタン
+	ItemListView mItemListView;
+	ArrayList<ItemListItem> mItemArrayList;
+	ItemListAdapter mItemAdapter;
+	
+	PlanningItemManager mItemManager;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
+        initializeAdapter();
         initializeButton();
         initializeListView();
+        initializeItemManager();
     }
     
     // ボタンの初期化を行う
     private void initializeButton(){
-    	buttonSummary = (Button)findViewById(R.id.button_summary);
-    	buttonSummary.setOnClickListener(new OnClickListener() {
+    	mButtonSummary = (Button)findViewById(R.id.button_summary);
+    	mButtonSummary.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -54,30 +56,38 @@ public class PlanningActivity extends Activity {
     
     // リストビューの初期化を行う
     private void initializeListView(){
-    	this.loadData();
-    	listView = (ListView)findViewById(R.id.listview_planning);
-    	listView.setAdapter(new ItemListAdapter(this, itemArrayList));
-    	listView.setOnItemClickListener(new OnItemClickListener() {
-    		@Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    			Toast.makeText(getApplicationContext(),
-                        (position + 1) + "番目がチェックされました。", Toast.LENGTH_SHORT).show();
-            }
-    		
-    	});
+    	mItemListView = (ItemListView)findViewById(R.id.listview_planning);
+    	mItemListView.setAdapter(mItemAdapter);
+    }
+    
+    // ItemManagerの初期化
+    private void initializeItemManager(){
+    	mItemManager = new PlanningItemManager(this, mItemArrayList.size());
+    	mItemManager.loadItemCount();
     }
 
     // Adapterを読み込む
-    private void loadData(){
-    	itemArrayList = new ArrayList<ItemListItem>();
+    private void initializeAdapter(){
+    	mItemArrayList = new ArrayList<ItemListItem>();
     	for(int i = 0; i < 30; i++){
     		ItemListItem item = new ItemListItem();
     		item.setCount(0);
     		item.setItemName("ほげ");
     		item.setPrice(4980);
-    		itemArrayList.add(item);
+    		mItemArrayList.add(item);
     	}
-    	
+    	mItemAdapter = new ItemListAdapter(this, mItemArrayList);
+    }
+    
+    // アイテムの個数を変更
+    public void addItemCount(int position, int addValue){
+    	// アイテムの個数を更新して保存
+    	if( !mItemManager.addItemCount(position, addValue) ) return;
+    	// Adapterを更新
+    	ItemListItem item = mItemAdapter.getItem(position);
+    	int count = mItemManager.getItemCount(position);
+    	item.setCount(count);
+    	mItemAdapter.notifyDataSetChanged();
     }
     
     @Override

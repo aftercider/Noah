@@ -23,13 +23,13 @@ public class WebActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_budget);
+        setContentView(R.layout.activity_home);
         initializeButton();
     }
     
     // ボタンの初期化を行う
     private void initializeButton(){
-    	buttonPlanning = (Button)findViewById(R.id.button_budget);
+    	buttonPlanning = (Button)findViewById(R.id.button_planning);
     	buttonPlanning.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -42,7 +42,7 @@ public class WebActivity extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getMenuInflater().inflate(R.menu.menu_budget, menu);
+        getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 }

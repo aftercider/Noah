@@ -24,10 +24,10 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/button_budget"
+                android:id="@+id/button_planning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_home_budget" />
+                android:text="@string/button_home_planning" />
 
             <Button
                 android:id="@+id/button_itemlist"

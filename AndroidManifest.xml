@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aftercider.noah"
     android:versionCode="1"
-    android:versionName="1.0" >http://www.aftercider.com/cat/20121209/http://www.aftercider.com/cat/20121209/
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="4"
@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name="AccountActivity" android:label="@string/title_activity_account"></activity>
-        <activity android:name="BudgetActivity" android:label="@string/title_activity_budget"></activity>
         <activity android:name="HashedTweetActivity" android:label="@string/title_activity_hashedtweet"></activity>
         <activity android:name="InformationActivity" android:label="@string/title_activity_information"></activity>
         <activity android:name="ItemListActivity" android:label="@string/title_activity_itemlist"></activity>

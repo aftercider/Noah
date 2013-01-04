@@ -18,7 +18,7 @@ import android.widget.Button;
 
 public class HomeActivity extends Activity {
 
-	Button buttonBudget;
+	Button buttonPlanning;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,12 @@ public class HomeActivity extends Activity {
     
     // ボタンの初期化を行う
     private void initializeButton(){
-    	buttonBudget = (Button)findViewById(R.id.button_budget);
-        buttonBudget.setOnClickListener(new OnClickListener() {
+    	buttonPlanning = (Button)findViewById(R.id.button_planning);
+        buttonPlanning.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClassName("com.aftercider.noah","com.aftercider.noah.BudgetActivity");
+				intent.setClassName("com.aftercider.noah","com.aftercider.noah.PlanningActivity");
 				startActivity(intent);
 			}
 		});
@@ -42,7 +42,7 @@ public class HomeActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getMenuInflater().inflate(R.menu.menu_budget, menu);
+    	getMenuInflater().inflate(R.menu.menu_home, menu);
     	return true;
     }
 }
