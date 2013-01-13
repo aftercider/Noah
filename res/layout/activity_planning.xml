@@ -4,19 +4,53 @@
     android:layout_height="fill_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/backgroundtexture" >
 
-    <com.aftercider.noah.ItemList.ItemListView
-        android:id="@+id/listview_planning"
+    <AbsoluteLayout
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="1" >
-    </com.aftercider.noah.ItemList.ItemListView>
+        android:layout_weight="1">
 
+        <com.aftercider.noah.ItemList.ItemListView
+            android:id="@+id/listview_planning"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@color/ListDivideGray"
+            android:cacheColorHint="@null" >
+        </com.aftercider.noah.ItemList.ItemListView>
+
+        <ImageView
+            android:id="@+id/animation_countup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/animation_baloon_up"
+            android:contentDescription="@string/app_name"
+            android:visibility="invisible" />
+    </AbsoluteLayout>
+	<LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_height="wrap_content"
+	    android:layout_width="fill_parent">
+    <TextView
+        android:id="@+id/textview_price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/button_planning_summary"
+        android:textSize="20sp" 
+        android:gravity="right"
+        android:background="@drawable/button_pressed"
+        />
     <Button
         android:id="@+id/button_summary"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_planning_summary" />
+        android:layout_weight="1"
+        android:text="@string/button_planning_summary"
+        android:textSize="20sp" 
+        android:background="@drawable/normal_button"
+        />
+    </LinearLayout>
 
 </LinearLayout>

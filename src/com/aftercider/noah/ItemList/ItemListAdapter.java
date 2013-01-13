@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 class ViewHolder{
+	int position;
 	TextView textName;
 	TextView textCount;
 	TextView textPrice;
@@ -59,6 +60,7 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 		}
 		
 		ItemListItem item = getItem(position);
+		holder.position	= position;
 		holder.textName.setText(item.getItemName());	// 商品名を更新
 		holder.textCount.setText(item.getCount() + "個");		// 個数を更新
 		holder.textPrice.setText(item.getPrice() + "円");		// 価格を更新

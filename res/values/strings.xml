@@ -24,6 +24,14 @@
     <string name="text_planning_listitem_count">3個</string>
     <!-- - For SummaryActivity -->
     <string name="title_activity_summary">summaryActivity</string>
+    <string name="text_summary_description_none">none</string>
+    <string name="text_summary_goods">グッズ名</string>
+    <string name="text_summary_count">個数</string>
+    <string name="text_summary_price">小計</string>
+    <string name="text_summary_plan">購入予定グッズ</string>
+    <string name="text_summary_check">チェック済みグッズ</string>
+    <string name="button_summary_tweet">Tweetする</string>
+    <string name="button_summary_home">TOPに戻る</string>
     <!-- - For ItemListActivity -->
     <string name="title_activity_itemlist">itemListActivity</string>
     <!-- - For InformationActivity -->

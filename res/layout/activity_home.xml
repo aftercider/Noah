@@ -4,7 +4,8 @@
     android:layout_height="fill_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/backgroundtexture" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -27,12 +28,15 @@
                 android:id="@+id/button_planning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/normal_button"
                 android:text="@string/button_home_planning" />
 
             <Button
                 android:id="@+id/button_itemlist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/normal_button"
+                android:visibility="gone"
                 android:text="@string/button_home_itemlist" />
         </TableRow>
 
@@ -45,12 +49,16 @@
                 android:id="@+id/button_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/normal_button"
+                android:visibility="gone"
                 android:text="@string/button_home_status" />
 
             <Button
                 android:id="@+id/button_hashedtweet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/normal_button"
+                android:visibility="gone"
                 android:text="@string/button_home_hashedtweet" />
         </TableRow>
     </TableLayout>
@@ -64,18 +72,24 @@
             android:id="@+id/button_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/normal_button"
+            android:visibility="gone"
             android:text="@string/button_home_account" />
 
         <Button
             android:id="@+id/button_web"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/normal_button"
+            android:visibility="gone"
             android:text="@string/button_home_web" />
 
         <Button
             android:id="@+id/button_staff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/normal_button"
+            android:visibility="gone"
             android:text="@string/button_home_staff" />
     </LinearLayout>
 

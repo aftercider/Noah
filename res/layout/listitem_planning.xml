@@ -1,22 +1,26 @@
-<FrameLayout android:layout_width="fill_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:background="@drawable/tableborder"
     android:orientation="horizontal"
-    android:padding="0.5dip" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="0.5dip" >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="0dip" >
-        <ImageButton
+
+        <ImageButton
             android:id="@+id/list_planning_button_countup"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="0dp"
             android:adjustViewBounds="true"
             android:background="@null"
             android:baselineAlignBottom="false"
+            android:padding="0dp"
             android:src="@drawable/countup_button" />
 
         <ImageView
@@ -35,12 +39,11 @@
             android:layout_weight="1"
             android:gravity="top"
             android:text="@string/text_planning_listitem_name"
-            android:textSize="11.5sp" />
+            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:background="#ffffff"
             android:orientation="vertical"
             android:padding="0dip" >
 
@@ -51,7 +54,7 @@
                 android:layout_gravity="right"
                 android:layout_weight="0.5"
                 android:text="@string/text_planning_listitem_price"
-                android:textSize="9sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/list_planning_count"
@@ -60,16 +63,20 @@
                 android:layout_gravity="right"
                 android:layout_weight="0.5"
                 android:text="@string/text_planning_listitem_count"
-                android:textSize="13sp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/list_planning_button_countdown"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="0dp"
+            android:adjustViewBounds="true"
             android:background="@null"
-            android:baselineAlignBottom="true"
+            android:baselineAlignBottom="false"
+            android:padding="0dp"
             android:src="@drawable/countdown_button" />
     </LinearLayout>
+
 </FrameLayout>
