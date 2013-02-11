@@ -8,6 +8,9 @@
 
 package com.aftercider.noah;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aftercider.noah.manager.ItemCountManager;
 import com.aftercider.noah.manager.ItemData;
 import com.aftercider.noah.manager.ItemDataManager;
@@ -66,29 +69,34 @@ public class SummaryActivity extends Activity {
     
     // ボタンの初期化を行う
     private void initializeButton(){
-    	mButtonTweet = (Button)findViewById(R.id.button_tweet);
     	mButtonHome  = (Button)findViewById(R.id.button_home);
-    	
-    	mButtonTweet.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent();
-				intent.setClassName("com.aftercider.noah","com.aftercider.noah.HomeActivity");
-				startActivity(intent);
-			}
-		});
+    	mButtonTweet = (Button)findViewById(R.id.button_tweet);
     	
     	mButtonHome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClassName("com.aftercider.noah","com.aftercider.noah.HomeActivity");
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				startActivity(intent);
+			}
+		});
+    	
+    	mButtonTweet.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				String[] tweet = createTweet();
+				intent.putExtra(TwitterAuthActivity.TWEET_MESSAGE, tweet);
+				intent.setClassName("com.aftercider.noah","com.aftercider.noah.TwitterAuthActivity");
+				
 				startActivity(intent);
 			}
 		});
     }
-    
-   // テーブルの初期化を行う
+
+    // テーブルの初期化を行う
     private void initializeTable(){
     	// 購入予定アイテムの表を初期化する
     	mTableLayout = (TableLayout)findViewById(R.id.tablelayout_summary);
@@ -135,7 +143,6 @@ public class SummaryActivity extends Activity {
 	// TableRowを作成
     private TableRow createTableRow(int position){
     	TableRow tableRow = (TableRow) mInflater.inflate(R.layout.tablerow_summary, null, false);
-    	// ToggleButton toggleButtonChecked;
     	TextView textViewName  = (TextView) (tableRow.findViewById(R.id.textview_summary_item_name));
     	TextView textViewCount = (TextView) (tableRow.findViewById(R.id.textview_summary_item_count));
     	TextView textViewPrice = (TextView) (tableRow.findViewById(R.id.textview_summary_item_price));
@@ -156,36 +163,94 @@ public class SummaryActivity extends Activity {
     
 	// TableRowのクリックイベントを作成
     private void setTableRowClickEvent(final TableRow tableRow){
-    	//tableRow.setOnClickListener(null);
-    	
     	// toggleButtonをタッチすると合計が変わるようにする
-    	ToggleButton toggleButton = (ToggleButton) (tableRow.findViewById(R.id.togglebutton_summary_checked));
+    	final ToggleButton toggleButton = (ToggleButton) (tableRow.findViewById(R.id.togglebutton_summary_checked));
     	toggleButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// チェック済み個数の更新
-				int position = Integer.valueOf(tableRow.getTag().toString());
-				int sumCount = 0;
-				int sumPrice = 0;
-				
-				mCheckedArray[position] = ((ToggleButton)v).isChecked();
-				for (int i = 0; i < mCheckedArray.length; i++) {
-					if(!mCheckedArray[i]) continue;
-					int count = mItemCountManager.getItemCount(i);
-					sumCount += count;
-					sumPrice += mItemDataManager.getItem(i).getPrice() * count;
-				}
-				mTextViewCheckedCount.setText(sumCount+"個");
-				mTextViewCheckedPrice.setText(sumPrice+"円");
+				updateTableRow(tableRow, (ToggleButton)v);
 			}
 		});
+    	
+    	tableRow.setClickable(true);
+    	tableRow.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				toggleButton.setChecked(!toggleButton.isChecked());
+				updateTableRow(tableRow, toggleButton);
+			}
+		});
+    	
     	return;
+    }
+    
+    private void updateTableRow(final TableRow tableRow, ToggleButton toggleButton){
+    	// チェック済み個数の更新
+		int position = Integer.valueOf(tableRow.getTag().toString());
+		int sumCount = 0;
+		int sumPrice = 0;
+		
+		mCheckedArray[position] = toggleButton.isChecked();
+		for (int i = 0; i < mCheckedArray.length; i++) {
+			if(!mCheckedArray[i]) continue;
+			int count = mItemCountManager.getItemCount(i);
+			sumCount += count;
+			sumPrice += mItemDataManager.getItem(i).getPrice() * count;
+		}
+		mTextViewCheckedCount.setText(sumCount+"個");
+		mTextViewCheckedPrice.setText(sumPrice+"円");
     }
     
 	// TableRowをリストに追加
     private void addTable(TableRow tableRow){
     	mTableLayout.addView(tableRow);
     	return;
+    }
+    
+    // ツイートを作成する
+    private String[] createTweet(){
+    	List<String> tweetString = new ArrayList<String>();
+    	String tweet="";
+    	String top=getString(R.string.tweet_top);
+    	String end=getString(R.string.tweet_end);
+    	
+    	// 始めの定型文を入れる
+    	tweet = top;
+    	
+    	for (int i = 0; i < mItemDataManager.getSize(); i++) {
+        	// 購入予定のアイテムを入れる
+        	// 個数を入れる
+    		if(mItemCountManager.getItemCount(i) == 0) continue;
+			String st = mItemDataManager.getItem(i).getShortName() + " " + mItemCountManager.getItemCount(i) + "個" + " / ";
+			
+			if(tweet.length() + st.length() > 136){
+				tweetString.add(tweet+" …");
+				tweet = "… " + st;
+			}else{
+				tweet += st;
+			}
+		}
+    	
+    	// 合計個数と価格を入れる
+    	String st = "合計: " + mItemCountManager.getBuyItemCounts() + "個 "+ calcSumPrice() + "円 ";
+
+    	// 最後の定型文を入れる
+    	if(tweet.length() + st.length() > 136){
+    		tweetString.add(tweet+" …");
+			tweet = "… " + st;
+    	}else{
+    		tweet += st;
+    	}
+
+    	// 最後の定型文を入れる
+    	if(tweet.length() + end.length() > 136){
+    		tweetString.add(tweet+" …");
+			tweetString.add(end);
+    	}else{
+    		tweet += "… " + end;
+    		tweetString.add(tweet);
+    	}
+    	return (String[])tweetString.toArray(new String[0]);
     }
     
     // TODO Managerに分離する

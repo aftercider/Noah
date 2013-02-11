@@ -2,6 +2,9 @@
 
     <string name="app_name">Noah App.</string>
     <string name="hello_world">Hello world!</string>
+    <string name="tweet_top">【17才だよ?!ゆかりちゃん祭り!! 物販購入リスト】 </string>
+    <string name="tweet_end">: 『ゆかりん物販なう！』 http://t.co/WYeq7oa3</string>
+    
     <!-- - For HomeActivity -->
     <string name="home_settings">Settings</string>
     <string name="title_activity_home">Noah</string>
@@ -19,9 +22,9 @@
     <!-- - For ListItem of PlanningActivity -->
     <string name="button_planning_listitem_countup">▲</string>
     <string name="button_planning_listitem_countdown">▼</string>
-    <string name="text_planning_listitem_name">UNION ☆ マグボトル A \n(BLUE 真空断熱二重構造\nワンタッチオープンタイプ)</string>
-    <string name="text_planning_listitem_price">3000円</string>
-    <string name="text_planning_listitem_count">3個</string>
+    <string name="text_planning_listitem_name">グッズ名</string>
+    <string name="text_planning_listitem_price">1000円</string>
+    <string name="text_planning_listitem_count">0個</string>
     <!-- - For SummaryActivity -->
     <string name="title_activity_summary">summaryActivity</string>
     <string name="text_summary_description_none">none</string>
@@ -30,7 +33,7 @@
     <string name="text_summary_price">小計</string>
     <string name="text_summary_plan">購入予定グッズ</string>
     <string name="text_summary_check">チェック済みグッズ</string>
-    <string name="button_summary_tweet">Tweetする</string>
+    <string name="button_summary_tweet">ツイートする</string>
     <string name="button_summary_home">TOPに戻る</string>
     <!-- - For ItemListActivity -->
     <string name="title_activity_itemlist">itemListActivity</string>
@@ -44,11 +47,15 @@
     <string name="title_activity_account">accountActivity</string>
     <!-- - For TwitterAuthActivity -->
     <string name="title_activity_twitterauth">twitterAuthActivity</string>
+    <string name="text_twitter_head">以下の内容をツイートします</string>
+    <string name="button_twitter_account">アカウント切替</string>
+    <string name="button_twitter_tweet">ツイートする</string>
     <!-- - For WebActivity -->
     <string name="title_activity_web">webActivity</string>
     <!-- - For StaffActivity -->
     <string name="title_activity_staff">staffActivity</string>
     <string name="textview_budget">予算を入力</string>
     <string name="button_budget_planning">商品を選ぶ</string>
+    <color name="transparent">#00000000</color>
 
 </resources>

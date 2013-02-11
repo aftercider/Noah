@@ -37,10 +37,10 @@ public class ItemListView extends ListView{
 					// 見つからなかったときは何もしない
 					if(item==null) return;
 					// 個数のTextViewを取得
-					TextView textCount = ((ViewHolder)item.getTag()).textCount;
+					TextView textCount = ((ItemViewHolder)item.getTag()).textCount;
 					// TextViewの位置を取得
-					textCount.getLocationInWindow(textPosition); 
-					activity.addAnimationBaloon(textPosition[0], textPosition[1]);
+					textCount.getLocationInWindow(textPosition);
+					activity.addAnimationBalloon(textPosition[0]+textCount.getWidth()/2, textPosition[1]);
 				}
 				break;
 			case BUTTON_COUNTDOWN:
@@ -52,10 +52,10 @@ public class ItemListView extends ListView{
 					// 見つからなかったときは何もしない
 					if(item==null) return;
 					// 個数のTextViewを取得
-					TextView textCount = ((ViewHolder)item.getTag()).textCount;
+					TextView textCount = ((ItemViewHolder)item.getTag()).textCount;
 					// TextViewの位置を取得
-					textCount.getLocationInWindow(textPosition); 
-					activity.addAnimationBaloon(textPosition[0], textPosition[1]);
+					textCount.getLocationInWindow(textPosition);
+					activity.addAnimationBalloon(textPosition[0]+textCount.getWidth()/2, textPosition[1]);
 				}
 				break;
 			default:
@@ -67,7 +67,7 @@ public class ItemListView extends ListView{
 		FrameLayout frame;
 		for (int i = 0; i < getChildCount(); i++) {
 			frame = (FrameLayout)getChildAt(i);
-			if( position == ((ViewHolder)frame.getTag()).position) return frame;
+			if( position == ((ItemViewHolder)frame.getTag()).position) return frame;
 		}
 		return null;
 	}

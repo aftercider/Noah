@@ -23,7 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-class ViewHolder{
+class ItemViewHolder{
 	int position;
 	TextView textName;
 	TextView textCount;
@@ -44,10 +44,10 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 	
 	@Override
 	public View getView(final int position, View convertView, final ViewGroup parent){
-		ViewHolder holder;
+		ItemViewHolder holder;
 		if(convertView == null){
 			convertView            = mInflater.inflate(R.layout.listitem_planning, parent, false);
-			holder                 = new ViewHolder();
+			holder                 = new ItemViewHolder();
 			holder.textName        = (TextView)   convertView.findViewById(R.id.list_planning_name);
 			holder.textCount       = (TextView)   convertView.findViewById(R.id.list_planning_count);
 			holder.textPrice       = (TextView)   convertView.findViewById(R.id.list_planning_price);
@@ -56,7 +56,7 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 			convertView.setTag(holder);
 		}
 		else{
-			holder = (ViewHolder) convertView.getTag();
+			holder = (ItemViewHolder) convertView.getTag();
 		}
 		
 		ItemListItem item = getItem(position);

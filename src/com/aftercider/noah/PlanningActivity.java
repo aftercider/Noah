@@ -23,8 +23,10 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -99,8 +101,8 @@ public class PlanningActivity extends Activity {
     // 合計額を入れるTextViewを初期化
     private void initializeSumView(){
     	mTextViewSumPrice = (TextView)findViewById(R.id.textview_price);
+    	
     	// 合計情報を更新する
-    	// TODO 分離する
     	mTextViewSumPrice.setText("計:"+calcSumPrice()+"円");
     }
     
@@ -108,16 +110,15 @@ public class PlanningActivity extends Activity {
     public boolean addItemCount(int position, int addValue){
     	// アイテムの個数を更新して保存
     	if( !mItemCountManager.addItemCount(position, addValue) ) return false;
+    	
     	// Adapterを更新
     	ItemListItem item = mItemAdapter.getItem(position);
     	int count = mItemCountManager.getItemCount(position);
     	item.setCount(count);
     	
     	// 合計情報を更新する
-    	// TODO 分離する
     	mTextViewSumPrice.setText("計:"+calcSumPrice()+"円");
     	
-    	// TODO 描画系は分離する
     	mItemAdapter.notifyDataSetChanged();	
     	return true;
     }
@@ -132,26 +133,46 @@ public class PlanningActivity extends Activity {
     }
     
     // TODO ちゃんと動かす
-    public void addAnimationBaloon(int x, int y){
-    	ImageView v = (ImageView)findViewById(R.id.animation_countup);
-    	v.setVisibility(View.VISIBLE);
-    	v.layout(x, y - v.getHeight(), x + v.getWidth(), y);
-    	Log.i("posiitino", x+":"+(y - v.getHeight())+":"+(x + v.getWidth())+":"+y+":");
-    	Log.i("left:top", v.getLeft() +":"+ v.getTop());
-    	
+    public void addAnimationBalloon(int x, int y){
+    	ImageView imageView = (ImageView)findViewById(R.id.animation_countup);
     	// リソースからアニメーションを読み込み、ビューに設定
-        v.setBackgroundResource( R.drawable.animation_baloon_up );
- 
+    	imageView.setVisibility(View.VISIBLE);
+    	int[] pos = {0,0};
+    	mItemListView.getLocationInWindow(pos);
+    	y -= pos[1];
+    	
         // ビューからアニメーションを取り出し
-        AnimationDrawable anim = (AnimationDrawable)v.getBackground();
+        AnimationDrawable anim = (AnimationDrawable)imageView.getDrawable();
  
         // アニメーション開始
         anim.setVisible(true, true);
+        imageView.layout(x - imageView.getWidth()/2, y - imageView.getHeight(), x + imageView.getWidth()/2, y);
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem menu) {
+    	// アイテムの個数を消去する
+    	mItemCountManager.resetItemCount();
+    	refreshItemList();	
+    	
+    	return super.onOptionsItemSelected(menu);
+    }
+    
+    private void refreshItemList(){
+    	// Adapterを更新
+    	for (int i = 0; i < mItemDataManager.getSize(); i++) {
+    		ItemListItem item = mItemAdapter.getItem(i);
+        	int count = mItemCountManager.getItemCount(i);
+        	item.setCount(count);
+		}
+    	
+    	// 合計情報を更新する
+    	mTextViewSumPrice.setText("計:"+calcSumPrice()+"円");
+    	mItemAdapter.notifyDataSetChanged();
     }
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getMenuInflater().inflate(R.menu.menu_planning, menu);
+    	menu.add(0 , Menu.FIRST, Menu.NONE, "個数を初期化する");
         return true;
     }
 }

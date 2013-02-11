@@ -1,0 +1,34 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/transparent_listitem"
+    android:orientation="horizontal"
+    android:padding="0.5dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="0dip" >
+
+        <jp.sharakova.android.urlimageview.UrlImageView
+            android:id="@+id/list_twitter_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="0dp"
+            android:adjustViewBounds="true"
+            android:paddingTop="20dp"
+            android:src="@drawable/image_twitter_icon_default"
+            />
+
+        <TextView
+            android:id="@+id/list_twitter_tweet"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textfield_baloon"
+            android:text="ゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりんゆかりん"
+            android:textSize="13sp" />
+        </LinearLayout>
+
+</FrameLayout>

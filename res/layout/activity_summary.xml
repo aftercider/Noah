@@ -23,7 +23,7 @@
                 android:background="@drawable/button_pressed" >
 
                 <TableRow
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content" >
 
                     <ToggleButton
@@ -34,14 +34,14 @@
                         android:textOn="" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="グッズ名" />
-
-                    <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:text="グッズ名" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="right|center_vertical"
                         android:text="個数" />
 

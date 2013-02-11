@@ -10,7 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.util.Log;
 
 public class ItemDataManager {
 	final String DATABASE_NAME = "DBtable.json";

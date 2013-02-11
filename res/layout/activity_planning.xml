@@ -2,55 +2,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:orientation="vertical"
-    android:background="@drawable/backgroundtexture" >
+    android:background="@drawable/backgroundtexture"
+    android:orientation="vertical" >
 
-    <AbsoluteLayout
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="1">
-
+        android:layout_weight="1" >
         <com.aftercider.noah.ItemList.ItemListView
             android:id="@+id/listview_planning"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:divider="@color/ListDivideGray"
-            android:cacheColorHint="@null" >
+            android:cacheColorHint="@null"
+            android:divider="@color/ListDivideGray" >
         </com.aftercider.noah.ItemList.ItemListView>
-
-        <ImageView
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <ImageView
             android:id="@+id/animation_countup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/animation_baloon_up"
             android:contentDescription="@string/app_name"
+            android:src="@drawable/animation_baloon_up"
             android:visibility="invisible" />
-    </AbsoluteLayout>
-	<LinearLayout
-	    android:orientation="horizontal"
-	    android:layout_height="wrap_content"
-	    android:layout_width="fill_parent">
-    <TextView
-        android:id="@+id/textview_price"
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/button_planning_summary"
-        android:textSize="20sp" 
-        android:gravity="right"
-        android:background="@drawable/button_pressed"
-        />
-    <Button
-        android:id="@+id/button_summary"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/button_planning_summary"
-        android:textSize="20sp" 
-        android:background="@drawable/normal_button"
-        />
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textview_price"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_pressed"
+            android:gravity="right"
+            android:text="@string/button_planning_summary"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button_summary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/normal_button"
+            android:text="@string/button_planning_summary"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -56,6 +56,13 @@ public class ItemCountManager {
 		return saveItemCount();
 	}
 	
+	public boolean resetItemCount(){
+		for (int i = 0; i < mItemCounts.length; i++) {
+			mItemCounts[i] = 0;
+		}
+		return saveItemCount();
+	}
+	
 	public int getItemCount(int position){
 		if(position < 0 || position > mItemCounts.length - 1) return -1;
 		Log.i(getClass().getName(), "getCount at:"+position+"val:"+mItemCounts[position]);
