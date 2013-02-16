@@ -19,7 +19,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -64,7 +63,6 @@ public class TwitterAuthActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == TwitterOAuth.REQ_CODE_TWITTER) {
 			if (resultCode == RESULT_OK) {
-				Log.i("intent", data.toString());
 				mTwitterAccountManager.setAccount(data);
 				setIconUrl(mTwitterAccountManager.getImageUrl());
 				initializeTweetListview();

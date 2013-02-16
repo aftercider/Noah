@@ -34,6 +34,7 @@ public class ItemDataManager {
 				itemData.setItemName(jsonObject.getString("itemname"));
 				itemData.setPrice(jsonObject.getInt("price"));
 				itemData.setShortName(jsonObject.getString("shortname"));
+				itemData.setResourceId(jsonObject.getString("image"), jsonObject.getString("color"));
 				mItemDataArray[i] = itemData;
 			}
 		} catch (IOException e) {

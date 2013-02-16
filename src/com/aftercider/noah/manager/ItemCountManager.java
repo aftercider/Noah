@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.util.Log;
 
 public class ItemCountManager {
 	
@@ -65,7 +64,6 @@ public class ItemCountManager {
 	
 	public int getItemCount(int position){
 		if(position < 0 || position > mItemCounts.length - 1) return -1;
-		Log.i(getClass().getName(), "getCount at:"+position+"val:"+mItemCounts[position]);
 		return mItemCounts[position];
 	}
 	

@@ -4,6 +4,65 @@
     android:layout_height="fill_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
+    android:background="@drawable/backgroundtexture"
     android:orientation="vertical" >
 
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_pressed"
+    android:orientation="vertical" 
+    >
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="開発"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリケーション企画・開発・グラフィック:\n
+ Aftercider http://www.aftercider.com/\n
+背景画像:\n
+ ヒバナ  http://hibana.rgr.jp/" />
+    </LinearLayout>
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_pressed"
+    android:orientation="vertical" 
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="免責事項・注意事項"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当アプリケーションのご利用は利用者の責任において行ってください。\n
+当アプリケーションの開発者は当アプリケーションの利用により生じた損害に対する責任を負いません。\n
+当アプリケーションは田村ゆかりさんとその他関係者の皆さまとは関係ありません。\n
+当アプリケーションに関するご質問・ご意見は開発者のAfterciderにお送りください。\n
+当アプリケーションの著作権は当アプリケーションの開発者に帰属します。" />
+    </LinearLayout>
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_pressed"
+    android:orientation="vertical" 
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="バージョン情報"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリケーションを作り直し、GUIを一新しました。\n
+会計画面において、会計時に商品が揃っているかチェックする機能を追加しました。項目をタップしてお使いください。" />
+</LinearLayout>
 </LinearLayout>

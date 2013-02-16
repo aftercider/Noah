@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -131,7 +130,6 @@ public class SummaryActivity extends Activity {
     	int[] buyItemIndexArray = mItemCountManager.getBuyItemIndexArray();
     	
     	for (int i = 0; i < buyItemIndexArray.length; i++) {
-    		Log.i("item", i+":"+buyItemIndexArray[i]);
     		int position = buyItemIndexArray[i];
     		tableRow = createTableRow(position);    	// TableRowを作成
     		setTableRowClickEvent(tableRow);	// TableRowのクリックイベントを作成
@@ -213,6 +211,7 @@ public class SummaryActivity extends Activity {
     	String tweet="";
     	String top=getString(R.string.tweet_top);
     	String end=getString(R.string.tweet_end);
+    	int itemSum = 0;
     	
     	// 始めの定型文を入れる
     	tweet = top;
@@ -222,6 +221,7 @@ public class SummaryActivity extends Activity {
         	// 個数を入れる
     		if(mItemCountManager.getItemCount(i) == 0) continue;
 			String st = mItemDataManager.getItem(i).getShortName() + " " + mItemCountManager.getItemCount(i) + "個" + " / ";
+			itemSum += mItemCountManager.getItemCount(i);
 			
 			if(tweet.length() + st.length() > 136){
 				tweetString.add(tweet+" …");
@@ -232,7 +232,7 @@ public class SummaryActivity extends Activity {
 		}
     	
     	// 合計個数と価格を入れる
-    	String st = "合計: " + mItemCountManager.getBuyItemCounts() + "個 "+ calcSumPrice() + "円 ";
+    	String st = "合計: " + itemSum + "個 "+ calcSumPrice() + "円 ";
 
     	// 最後の定型文を入れる
     	if(tweet.length() + st.length() > 136){
@@ -245,9 +245,9 @@ public class SummaryActivity extends Activity {
     	// 最後の定型文を入れる
     	if(tweet.length() + end.length() > 136){
     		tweetString.add(tweet+" …");
-			tweetString.add(end);
+			tweetString.add("… " + end);
     	}else{
-    		tweet += "… " + end;
+    		tweet += end;
     		tweetString.add(tweet);
     	}
     	return (String[])tweetString.toArray(new String[0]);

@@ -141,15 +141,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
-                <Button
-                    android:id="@+id/button_tweet"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/normal_button"
-                    android:text="@string/button_summary_tweet"
-                    android:textSize="20sp" />
-
+                
                 <Button
                     android:id="@+id/button_home"
                     android:layout_width="fill_parent"
@@ -158,6 +150,15 @@
                     android:background="@drawable/normal_button"
                     android:text="@string/button_summary_home"
                     android:textSize="20sp" />
+                <Button
+                    android:id="@+id/button_tweet"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/normal_button"
+                    android:text="@string/button_summary_tweet"
+                    android:textSize="20sp" />
+                
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

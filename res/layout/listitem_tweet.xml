@@ -15,9 +15,8 @@
             android:id="@+id/list_twitter_icon"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_margin="0dp"
+            android:layout_marginTop="15dp"
             android:adjustViewBounds="true"
-            android:paddingTop="20dp"
             android:src="@drawable/image_twitter_icon_default"
             />
 

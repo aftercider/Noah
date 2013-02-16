@@ -13,7 +13,6 @@ import java.util.List;
 import com.aftercider.noah.R;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,6 +50,7 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 			holder.textName        = (TextView)   convertView.findViewById(R.id.list_planning_name);
 			holder.textCount       = (TextView)   convertView.findViewById(R.id.list_planning_count);
 			holder.textPrice       = (TextView)   convertView.findViewById(R.id.list_planning_price);
+			holder.imageView       = (ImageView)  convertView.findViewById(R.id.list_planning_imageView);
 			holder.buttonCountUp   = (ImageButton)convertView.findViewById(R.id.list_planning_button_countup);
 			holder.buttonCountDown = (ImageButton)convertView.findViewById(R.id.list_planning_button_countdown);
 			convertView.setTag(holder);
@@ -64,13 +64,13 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 		holder.textName.setText(item.getItemName());	// 商品名を更新
 		holder.textCount.setText(item.getCount() + "個");		// 個数を更新
 		holder.textPrice.setText(item.getPrice() + "円");		// 価格を更新
+		holder.imageView.setImageResource(item.getResourceId());
 		
 		// 個数変更ボタンの反応
 		holder.buttonCountUp.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// 個数を変えて記録する
-				Log.i("up button","pushed");
 				((ItemListView)parent).onClick(position, ItemListView.BUTTON_COUNTUP);
 			}
 		});
@@ -79,7 +79,6 @@ public class ItemListAdapter extends ArrayAdapter<ItemListItem> {
 			@Override
 			public void onClick(View v) {
 				// 個数を変えて記録する
-				Log.i("down button","pushed");
 				((ItemListView)parent).onClick(position, ItemListView.BUTTON_COUNTDOWN);
 			}
 		});

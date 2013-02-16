@@ -12,7 +12,6 @@ import com.aftercider.noah.PlanningActivity;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,7 +28,6 @@ public class ItemListView extends ListView{
 		PlanningActivity activity = (PlanningActivity)getContext();
 		switch(key){
 			case BUTTON_COUNTUP:
-				Log.i(getClass().getName(), "clickUP");
 				if(activity.addItemCount(position, 1)){
 					int[] textPosition= {0,0};
 					// ListItemのViewを取得
@@ -44,7 +42,6 @@ public class ItemListView extends ListView{
 				}
 				break;
 			case BUTTON_COUNTDOWN:
-				Log.i(getClass().getName(), "clickDOWN");
 				if(activity.addItemCount(position, -1)){
 					int[] textPosition= {0,0};
 					// ListItemのViewを取得
@@ -55,7 +52,7 @@ public class ItemListView extends ListView{
 					TextView textCount = ((ItemViewHolder)item.getTag()).textCount;
 					// TextViewの位置を取得
 					textCount.getLocationInWindow(textPosition);
-					activity.addAnimationBalloon(textPosition[0]+textCount.getWidth()/2, textPosition[1]);
+					activity.minusAnimationBalloon(textPosition[0]+textCount.getWidth()/2, textPosition[1]);
 				}
 				break;
 			default:

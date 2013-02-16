@@ -19,6 +19,7 @@ import android.widget.Button;
 public class HomeActivity extends Activity {
 
 	Button buttonPlanning;
+	Button buttonStaff;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,15 @@ public class HomeActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClassName("com.aftercider.noah","com.aftercider.noah.PlanningActivity");
+				startActivity(intent);
+			}
+		});
+        buttonStaff = (Button)findViewById(R.id.button_staff);
+        buttonStaff.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClassName("com.aftercider.noah","com.aftercider.noah.StaffActivity");
 				startActivity(intent);
 			}
 		});

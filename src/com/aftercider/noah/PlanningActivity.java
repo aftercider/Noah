@@ -21,12 +21,10 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -92,6 +90,7 @@ public class PlanningActivity extends Activity {
     		item.setItemName(itemData.getItemName());
     		item.setCount(mItemCountManager.getItemCount(i));
     		item.setPrice(itemData.getPrice());
+    		item.setResourceId(itemData.getResourceId());
     		
     		mItemArrayList.add(item);
     	}
@@ -132,7 +131,6 @@ public class PlanningActivity extends Activity {
     	return price;
     }
     
-    // TODO ちゃんと動かす
     public void addAnimationBalloon(int x, int y){
     	ImageView imageView = (ImageView)findViewById(R.id.animation_countup);
     	// リソースからアニメーションを読み込み、ビューに設定
@@ -148,6 +146,22 @@ public class PlanningActivity extends Activity {
         anim.setVisible(true, true);
         imageView.layout(x - imageView.getWidth()/2, y - imageView.getHeight(), x + imageView.getWidth()/2, y);
     }
+    public void minusAnimationBalloon(int x, int y){
+    	ImageView imageView = (ImageView)findViewById(R.id.animation_countdown);
+    	// リソースからアニメーションを読み込み、ビューに設定
+    	imageView.setVisibility(View.VISIBLE);
+    	int[] pos = {0,0};
+    	mItemListView.getLocationInWindow(pos);
+    	y -= pos[1];
+    	
+        // ビューからアニメーションを取り出し
+        AnimationDrawable anim = (AnimationDrawable)imageView.getDrawable();
+ 
+        // アニメーション開始
+        anim.setVisible(true, true);
+        imageView.layout(x - imageView.getWidth()/2, y - imageView.getHeight(), x + imageView.getWidth()/2, y);
+    }
+ 
     
     public boolean onOptionsItemSelected(MenuItem menu) {
     	// アイテムの個数を消去する
